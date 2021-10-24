@@ -1,5 +1,5 @@
 みなさまお疲れ様でした！！！    
-入賞候補精査中ではありますが、1位に入りましたので取り急ぎ解法や取り組みを投稿します。ご質問やご指摘などございましたが、コメントいただければと思います。  
+入賞候補精査中ではありますが、1位に入りましたので取り急ぎ解法や取り組みを投稿します。ご質問やご指摘などございましたら、コメントいただければと思います。  
 最終submissionのコードはこちらで公開予定です。  
 https://github.com/takumiw/nishika-cable-classification-1st-place
 
@@ -12,7 +12,7 @@ https://github.com/takumiw/nishika-cable-classification-1st-place
 ## 前処理
 ### 物体検出用アノテーションデータ
 今回提供された訓練用データセットは、`train`(2371枚)と`additional`(1648枚)の2種類ありました。  
-コンペ中、[以下のアナウンス](https://www.nishika.com/competitions/19/topics/143)が行われたため、additionalデータセットの画像全てに物体検出用のアノテーションデータを手作業で追加しました。また、`train`データセットのアノテーションデータもノイズが大きかったため、手作業で修正しました。アノテーションツールには[labelImg](https://github.com/tzutalin/labelImg)を使っています。
+コンペ中、[以下のアナウンス](https://www.nishika.com/competitions/19/topics/143)が行われたため、`additional`データセットの画像全てに物体検出用のアノテーションデータを手作業で追加しました。また、`train`データセットのアノテーションデータもノイズが大きかったため、手作業で修正しました。アノテーションツールには[labelImg](https://github.com/tzutalin/labelImg)を使っています。
 
 <img src="https://raw.githubusercontent.com/takumiw/nishika-cable-classification-1st-place/main/img/img0_1.png" width=90%>
 

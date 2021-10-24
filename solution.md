@@ -116,7 +116,7 @@ transforms = tta.Compose(
 ### 結果
 
 | model | input size | CV | Public | Private (コンペ終了後に確認) |
-| -- | -- | -- | -- | -- |
+| -- | :--: | :--: | :--: | :--: |
 | efficientnet_b4 | 380| 0.995019 | 0.981198 | 0.985915 |
 | efficientnetv2_rw_m | 416 | 0.994271 | - | - |
 | resnet18d | 224 | 0.991283 | - | - |
@@ -152,8 +152,8 @@ Stage-2であまり効果がなかっったため、使わず。
 
 ### 結果
 
-| model | input size | CV | Public | Private |
-| -- | -- | -- | -- | -- |
+| model | input size | CV | Public | Private (コンペ終了後に確認) |
+| -- | :--: | :--: | :--: | :--: |
 | efficientnet_b4 | 380 | 0.997104 | 0.983548 | 0.985915 |
 | efficientnet_b5 | 456 | 0.996019 | 0.985898 | 0.986656 |
 | efficientnet_b6 | 528 | 0.995838 | 0.984723 | 0.984432 |

@@ -9,8 +9,7 @@ from tqdm import tqdm
 
 from src.data_vis import read_cv_image
 
-CUR_DIR = Path().resolve()
-ROOT_DIR = CUR_DIR.parent.parent
+ROOT_DIR = Path().resolve()
 DATASET_DIR = ROOT_DIR / "input"
 
 border_mode = 1

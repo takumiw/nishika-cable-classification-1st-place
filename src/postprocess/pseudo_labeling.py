@@ -7,8 +7,7 @@ from src.pl_dataset import NishikaDataset
 
 
 EXP_ID = "exp12_averaging_2021-1031-0800"
-CUR_DIR = Path().resolve()
-ROOT_DIR = CUR_DIR.parent.parent
+ROOT_DIR = Path().resolve()
 LOG_DIR = ROOT_DIR / "logs" / EXP_ID
 DATASET_DIR = ROOT_DIR / "input" / "preprocessed"
 

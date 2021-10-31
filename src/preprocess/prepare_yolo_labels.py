@@ -4,8 +4,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-CUR_DIR = Path().resolve()
-ROOT_DIR = CUR_DIR.parent.parent
+ROOT_DIR = Path().resolve()
 DATASET_DIR = ROOT_DIR / "input"
 OUTPUT_DIR = DATASET_DIR / "preprocessed" / "train_all_clean_1280" / "labels"
 

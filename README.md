@@ -71,7 +71,7 @@
 
 # How to Run
 ## データのダウンロード
-1. https://www.nishika.com/competitions/19/data からコンペのデータをダウンロードし、上記のようにinputディレクトリに展開してください。
+1. https://www.nishika.com/competitions/19/data からコンペのデータをダウンロードし、上記のように`input`ディレクトリの`train`、`additional`、`test`ディレクトリ下に画像ファイルを展開してください。
 
 2. 必要なパッケージをインストールしてください。
 
@@ -91,3 +91,17 @@ $ source venv/bin/activate
 `run_00_preparation_00.sh` から順に `run_12_stage3_avg_exp36.sh` まで実行してください。  
 実行結果は `logs` ディレクトリに自動で保存されます。`run_11_stage3_avg_exp30.sh`、`run_12_stage3_avg_exp36.sh`の実行後 `logs`ディレクトリに出力される `submission.csv` ファイルが、最終提出に利用した提出ファイルとなります。  
 (注. 上記を全て直列に実行した場合、合計100時間程度かかります。)
+
+## runファイル
+```bash
+$ ./run_00_preparation_00.sh  # 画像ファイルの準備
+$ ./run_00_preparation_01.sh  # YOLOv5への入力用の画像の前処理
+$ ./run_00_preparation_02.sh  # YOLOv5の設定の準備
+$ ./run_00_preparation_03.sh  # Test Time Augmentationの準備
+$ ./run_01_yolov5_*.sh  # YOLOv5の学習の実行
+$ ./run_02_yolov5_detect_00.sh  # YOLOv5の推論の実行
+$ ./run_03_yolov5_postprocess_00.sh  # YOLOv5の後処理の実行
+$ ./run_04_preparation_00.sh  # 画像分類の準備
+$ ./run_05_stage2_exp*.sh  # 画像分類の実行 (stage-2)
+$ ./run_10_stage3_exp*.sh  # 画像分類の実行 (stage-3)
+```

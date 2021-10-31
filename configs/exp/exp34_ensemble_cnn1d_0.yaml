@@ -1,0 +1,22 @@
+# @package exp
+
+name: exp34_ensemble_cnn1d_0
+method: stacking  # chosen from averaging, stacking
+inputs:
+  - exp20_effb4_380_2021-1031-1000
+  - exp25_resnet50d_224_2021-1031-1500
+  - exp21_effb5_456_0_2021-1031-1100
+  - exp21_effb5_456_2_2021-1031-1120
+  - exp22_effb6_528_2021-1031-1200
+stacking:
+  model: cnn1d  # chosen from lgbm, cnn1d, cnn2d
+  seed: 0
+training:
+  batch_size : 128
+  epochs: 1000
+  learning_rate: 1e-3
+  optimizer: adamw
+  weight_decay: 1e-3
+  verbose_epochs: 10
+  num_class: 15
+  verbose: 0

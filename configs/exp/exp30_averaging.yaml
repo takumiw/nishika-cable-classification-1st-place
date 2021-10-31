@@ -1,0 +1,8 @@
+# @package exp
+
+name: exp30_averaging
+method: averaging  # chosen from averaging, stacking
+inputs:
+  - exp21_effb5_456_0_2021-1031-1100
+  - exp21_effb5_456_1_2021-1031-1110
+  - exp21_effb5_456_2_2021-1031-1120

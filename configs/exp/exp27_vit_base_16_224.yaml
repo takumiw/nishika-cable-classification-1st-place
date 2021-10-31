@@ -1,0 +1,35 @@
+# @package exp
+
+name: exp27_vit_base_16_224
+input:
+  size:
+    - 224
+    - 224
+  use_pseudo: true
+model:
+  seed: 0
+  backbone: vit_base_patch16_224
+  pretrained: true
+  do_dropout: false
+  hidden_dim: null
+training:
+  batch_size : 64
+  epochs: 69  # 5.5 cycles (6 * 2 * 5.5) + 3 epochs
+  learning_rate: 1e-4
+  optimizer: adamw
+  weight_decay: 1e-2
+  verbose_epochs: 10
+  log_every_n_steps: 10  # default=50
+  criterion: 
+    loss_function: LabelSmoothingCrossEntropy
+    smoothing: 0.1
+lrate_scheduler:
+  scheduler: LinearWarmupCosineAnnealingLR
+  T_max: 414  # 6 epochs x 69 mini-batches (4420 // 64)
+  warmup_epochs: 207  # 3 epochs x 69 batches
+  warmup_start_lr: 0.0
+  eta_min: 0.0
+  m_mul: 0.8
+tta:
+  batch_size : 64
+  size: 291  # 224 * 1.3

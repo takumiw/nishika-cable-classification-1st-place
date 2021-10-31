@@ -1,0 +1,54 @@
+# @package exp
+
+name: exp21_effb5_456_0
+input:
+  size:
+    - 456
+    - 456
+  use_pseudo: true
+model:
+  seed: 1
+  backbone: efficientnet_b5
+  pretrained: true
+  do_dropout: true
+  hidden_dim: null
+training:
+  batch_size: 8
+  epochs: 46  # 5.5 cycles (4 * 2 * 5.5) + 2 epochs
+  learning_rate: 1e-3
+  optimizer: adamw
+  weight_decay: 1e-2
+  verbose_epochs: 10
+  log_every_n_steps: 10  # default=50
+  criterion: 
+    loss_function: LabelSmoothingCrossEntropy
+    smoothing: 0.1
+lrate_scheduler:
+  scheduler: LinearWarmupCosineAnnealingLR
+  T_max: 2208  # 4 epochs x 552 mini-batches (4420 // 8)
+  warmup_epochs: 1104  # 2 epochs x 552 batches
+  warmup_start_lr: 0.0
+  eta_min: 0.0
+  m_mul: 0.8
+tta:
+  batch_size : 20
+  size: 494  # 380 * 1.3
+  transforms:
+    - HorizontalFlip
+    - VerticalFlip
+    - Scale
+    - Rotate90
+    - Multiply
+  settings:
+    scales:
+      - 1.0
+      - 0.83
+      - 0.67
+    angles:
+      - 0
+      - 90
+      - 270
+    factors:
+      - 0.9
+      - 1.0
+      - 1.1

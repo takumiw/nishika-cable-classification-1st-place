@@ -1,0 +1,44 @@
+# @package exp
+
+name: exp05_resnet101d_256
+input:
+  size:
+    - 256
+    - 256
+  use_pseudo: false
+model:
+  seed: 0
+  backbone: resnet101d
+  pretrained: true
+  do_dropout: false
+  hidden_dim: null
+training:
+  batch_size : 64
+  epochs: 59  # 3.5 cycles (8 * 2 * 3.5) + 3 epochs
+  learning_rate: 1e-3
+  optimizer: adamw
+  weight_decay: 1e-2
+  verbose_epochs: 10
+  log_every_n_steps: 10  # default=50
+  criterion: 
+    loss_function: LabelSmoothingCrossEntropy
+    smoothing: 0.1
+lrate_scheduler:
+  scheduler: LinearWarmupCosineAnnealingLR
+  T_max: 400  # 8 epochs x 50 mini-batches (3215 // 64)
+  warmup_epochs: 150  # 3 epochs x 50 batches
+  warmup_start_lr: 0.0
+  eta_min: 0.0
+  m_mul: 1.0
+tta:
+  batch_size : 64
+  size: 332  # 256 * 1.3
+  transforms:
+    - HorizontalFlip
+    - VerticalFlip
+    - Scale
+  settings:
+    scales:
+      - 1.0
+      - 0.83
+      - 0.67

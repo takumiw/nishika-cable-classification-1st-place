@@ -1,0 +1,7 @@
+defaults:
+  - exp: exp00_effb4_380.yaml
+
+exec_time: null
+n_classes: 15
+n_folds: 5
+fold: 0

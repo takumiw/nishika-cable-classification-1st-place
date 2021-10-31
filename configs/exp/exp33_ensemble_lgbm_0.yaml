@@ -1,0 +1,38 @@
+# @package exp
+
+name: exp33_ensemble_lgbm_0
+method: stacking  # chosen from averaging, stacking
+inputs:
+  - exp20_effb4_380_2021-1031-1000
+  - exp24_effv2m_416_2021-1031-1400
+  - exp25_resnet50d_224_2021-1031-1500
+  - exp27_vit_base_16_224_2021-1031-1700
+  - exp28_nfnet_l0_224_2021-1031-1800
+  - exp21_effb5_456_0_2021-1031-1100
+  - exp21_effb5_456_2_2021-1031-1120
+  - exp22_effb6_528_2021-1031-1200
+stacking:
+  model: lgbm  # chosen from lgbm, cnn1d, cnn2d
+lgbm:
+  verbose_periods: 25
+  early_stopping_rounds: 50
+  metric: logloss
+  params:
+    boosting_type: gbdt
+    objective: multiclass
+    num_class: 15
+    metric: multi_logloss
+    num_leaves: 31
+    min_data_in_leaf: 20
+    min_sum_hessian_in_leaf: 0.001
+    bagging_fraction: 0.8
+    bagging_freq: 1
+    lambda_l1: 0.0
+    lambda_l2: 0.0
+    max_bin: 255
+    feature_fraction: 1.0
+    max_depth: 8
+    learning_rate: 0.01
+    verbose: -1
+    num_threads: -1
+    seed: 42

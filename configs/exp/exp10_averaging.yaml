@@ -1,0 +1,11 @@
+# @package exp
+
+name: exp10_averaging
+method: averaging  # chosen from averaging, stacking
+inputs:
+  - exp00_effb4_380_2021-1031-0000
+  - exp00_effb4_380_2021-1031-0000/tta
+  - exp01_effv2m_416_2021-1031-0100
+  - exp04_resnet50d_224_2021-1031-0400
+  - exp05_resnet101d_256_2021-1031-0500
+  - exp05_resnet101d_256_2021-1031-0100/tta

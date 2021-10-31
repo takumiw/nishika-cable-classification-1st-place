@@ -1,0 +1,16 @@
+# @package exp
+
+name: exp36_averaging
+method: averaging  # chosen from averaging, stacking
+inputs:
+  - exp34_ensemble_cnn1d_0_2021-1031-2400  # cnn1d seed0
+  - exp34_ensemble_cnn1d_1_2021-1031-2410  # cnn1d seed1
+  - exp34_ensemble_cnn1d_2_2021-1031-2420  # cnn1d seed2
+  - exp35_ensemble_cnn2d_0_2021-1031-2500  # cnn2d seed0
+  - exp35_ensemble_cnn2d_1_2021-1031-2510  # cnn2d seed1
+  - exp35_ensemble_cnn2d_2_2021-1031-2520  # cnn2d seed2
+  - exp30_averaging_2021-1031-2000  # avg eff-b5 x 3
+  - exp31_averaging_2021-1031-2100  # avg 8 models
+  - exp32_weight_optimization_2021-1031-2200  # weight opt 7 models
+  - exp33_ensemble_lgbm_0_2021-1031-2300  # lgbm
+  - exp33_ensemble_lgbm_1_2021-1031-2310  # lgbm
